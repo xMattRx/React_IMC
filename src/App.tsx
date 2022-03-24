@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import styles from './App.module.css'
 import poweredImage from './assets/powered.png'
+import { GridItem } from './components/GridItem'
+import { levels } from './helpers/imc'
 
 export default function App() {
   const [heightField, setHeightField] = useState<number>(0)
@@ -40,7 +42,16 @@ export default function App() {
 
         </div>
 
-        <div className={styles.rightSide}>....</div>
+        <div className={styles.rightSide}>
+
+          <div className={styles.grid}>
+          
+            {levels.map((item,key)=>{
+              return <GridItem item={item} key={key}/>
+            })}
+          </div>
+
+        </div>
 
       </div>
     </div>
